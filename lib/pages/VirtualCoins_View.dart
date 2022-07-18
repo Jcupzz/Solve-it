@@ -123,5 +123,5 @@ TextStyle h14 = TextStyle(
   fontSize: 14,
   color: Colors.black,
   fontFamily: GoogleFonts.poppins().fontFamily,
-  fontWeight: FontWeight.normal,
+  fontWeight: FontWeight.normal,  
 );

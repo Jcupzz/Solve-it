@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Material(child: VirtualCoins_View()),
+      home: Material(child: Detailed_View()),
     );
   }
 }
