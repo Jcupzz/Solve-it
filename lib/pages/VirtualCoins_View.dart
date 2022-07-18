@@ -18,77 +18,73 @@ class _VirtualCoins_ViewState extends State<VirtualCoins_View> {
   ];
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: SafeArea(
-        child: Container(
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 10.0,
-                        spreadRadius: 10, //New
-                      )
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Lottie.asset("assets/lottie/gold_coin.json"),
-                        Text("You have", style: h2),
-                        Text("10", style: h3_bold),
-                        Text("Virtual Coins", style: h2),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 10.0,
-                        spreadRadius: 10, //New
-                      )
-                    ],
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 20, 10, 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("How to earn virtual coins?", style: h2_bold),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        BulletedList(
-                          listItems: listItems,
-                          style: h14,
-                          bulletColor: Colors.black,
-                        ),
-                      ],
-                    ),
-                  ),
+    return Container(
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 15,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 5.0,
+                  spreadRadius: 2, //New
                 )
               ],
             ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Lottie.asset("assets/lottie/gold_coin.json"),
+                  Text("You have", style: h2),
+                  Text("10", style: h3_bold),
+                  Text("Virtual Coins", style: h2),
+                ],
+              ),
+            ),
           ),
-        ),
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 5.0,
+                  spreadRadius: 2, //New
+                )
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 10, 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("How to earn virtual coins?", style: h2_bold),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  BulletedList(
+                    listItems: listItems,
+                    style: h14,
+                    bulletColor: Colors.black,
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
@@ -123,5 +119,5 @@ TextStyle h14 = TextStyle(
   fontSize: 14,
   color: Colors.black,
   fontFamily: GoogleFonts.poppins().fontFamily,
-  fontWeight: FontWeight.normal,  
+  fontWeight: FontWeight.normal,
 );

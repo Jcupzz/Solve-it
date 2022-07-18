@@ -1,7 +1,9 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:solve_it/pages/Add_Complaint.dart';
 import 'package:solve_it/pages/Home.dart';
+import 'package:solve_it/pages/Profile.dart';
 import 'package:solve_it/pages/asd.dart';
 
 class Bottom_Nav_Bar extends StatefulWidget {
@@ -13,9 +15,9 @@ class _Bottom_Nav_BarState extends State<Bottom_Nav_Bar> {
   int _page = 0;
   final pageOption = [
     Home(),
+    Add_Complaint(),
     Home(),
-    Home(),
-    Home(),
+    Profile(),
   ];
 
   @override
