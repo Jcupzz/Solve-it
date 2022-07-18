@@ -4,7 +4,10 @@ import 'package:solve_it/Authentication/Register.dart';
 import 'package:solve_it/HomePage.dart';
 import 'package:solve_it/firebase_options.dart';
 import 'package:solve_it/pages/Detailed_View.dart';
+import 'package:solve_it/pages/Home.dart';
 import 'package:solve_it/pages/VirtualCoins_View.dart';
+import 'package:solve_it/pages/asd.dart';
+import 'package:solve_it/static/Bottom_Nav_Bar.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Material(child: Register()),
+      home: Material(child: Bottom_Nav_Bar()),
     );
   }
 }
