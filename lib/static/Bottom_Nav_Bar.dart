@@ -13,7 +13,9 @@ class _Bottom_Nav_BarState extends State<Bottom_Nav_Bar> {
   int _page = 0;
   final pageOption = [
     Home(),
-    UuhyWidget(),
+    Home(),
+    Home(),
+    Home(),
   ];
 
   @override
@@ -32,16 +34,16 @@ class _Bottom_Nav_BarState extends State<Bottom_Nav_Bar> {
             size: 20,
             color: Colors.black,
           ),
-          // Icon(
-          //   Icons.add_circle_rounded,
-          //   size: 20,
-          //   color: Colors.black,
-          // ),
-          // Icon(
-          //   Icons.location_on_outlined,
-          //   color: Colors.black,
-          //   size: 20,
-          // ),
+          Icon(
+            Icons.add_circle_rounded,
+            size: 20,
+            color: Colors.black,
+          ),
+          Icon(
+            Icons.location_on_outlined,
+            color: Colors.black,
+            size: 20,
+          ),
           Icon(
             Icons.person,
             size: 20,
