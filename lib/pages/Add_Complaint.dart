@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:solve_it/Database_Services/Database_Services.dart';
+import 'package:solve_it/pages/Select_Location.dart';
+import 'package:solve_it/static/Bottom_Nav_Bar.dart';
 import 'package:solve_it/static/Styles.dart';
 
 class Add_Complaint extends StatefulWidget {
@@ -16,15 +19,14 @@ class Add_Complaint extends StatefulWidget {
 
 class _Add_ComplaintState extends State<Add_Complaint> {
   final _formKey = GlobalKey<FormState>();
-  late String iName, iPhone1, iPhone2, iAddress, iType, iDesc;
+  late String? iName, iPhone1, iAddress, iType, iDesc = "";
   final iNameController = TextEditingController();
   final iPhone1Controller = TextEditingController();
-  final iPhone2Controller = TextEditingController();
   final iAddressController = TextEditingController();
   final iDescController = TextEditingController();
   late int selectedValue = 0;
   int iHour = 1;
-  late File iPhoto = File("path");
+  File? iPhoto;
   late double lat;
   late double long;
   bool isLocationSelected = false;
@@ -68,12 +70,12 @@ class _Add_ComplaintState extends State<Add_Complaint> {
     "Change Maintenance Of Existing Dhobi Ghats",
     "Maintenance Of Existing Markets",
   ];
-
+  Database_Services database_services = Database_Services();
   var dropdownvalue;
   // Database_Services database_services = new Database_Services();
 
   Future getImage() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     setState(() {
       if (pickedFile != null) {
         iPhoto = File(pickedFile.path);
@@ -362,7 +364,7 @@ class _Add_ComplaintState extends State<Add_Complaint> {
                                   Icons.add_photo_alternate_outlined,
                                   size: 80,
                                 )
-                              : Image.file(iPhoto)),
+                              : Image.file(iPhoto!)),
                     ),
                   ),
                   Divider(
@@ -384,10 +386,10 @@ class _Add_ComplaintState extends State<Add_Complaint> {
                           margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                           child: ElevatedButton(
                               onPressed: () {
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (_) => Select_Location()));
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => Select_Location()));
                               },
                               child: Text("Location Selected"),
                               style: ElevatedButton.styleFrom(
@@ -403,12 +405,11 @@ class _Add_ComplaintState extends State<Add_Complaint> {
                           margin: EdgeInsets.fromLTRB(0, 0, 0, 10),
                           child: ElevatedButton(
                               onPressed: () async {
-                                var result;
-                                // var result = await Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(
-                                //       builder: (_) => Select_Location()),
-                                // );
+                                var result = await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => Select_Location()),
+                                );
                                 if (result != null) {
                                   print('result is:');
                                   print(result);
@@ -423,7 +424,7 @@ class _Add_ComplaintState extends State<Add_Complaint> {
                               },
                               child: Text("Select Location"),
                               style: ElevatedButton.styleFrom(
-                                  primary: Theme.of(context).buttonColor,
+                                  primary: Colors.black,
                                   elevation: 0,
                                   shape: RoundedRectangleBorder(
                                       borderRadius:
@@ -473,72 +474,22 @@ class _Add_ComplaintState extends State<Add_Complaint> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(15, 10, 0, 0),
-                    child: Text(
-                      "Secondary Contact Number",
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                  ),
-                  TextFormField(
-                    onChanged: (value) {
-                      iPhone2 = value;
-                    },
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                    keyboardType: TextInputType.number,
-                    controller: iPhone2Controller,
-                    decoration: InputDecoration(
-                      fillColor: Colors.white,
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(14),
-                        borderSide: BorderSide(
-                            width: 1,
-                            color: Theme.of(context).unselectedWidgetColor),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(14),
-                        borderSide: BorderSide(
-                            width: 1,
-                            color: Theme.of(context).unselectedWidgetColor),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(14),
-                        borderSide: BorderSide(),
-                      ),
-                    ),
-                  ),
+
                   Padding(
                     padding: const EdgeInsets.fromLTRB(0, 14, 0, 30),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
-                      height: 50,
+                      height: 60,
                       child: ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              switch (selectedValue) {
-                                case 1:
-                                  iType = "Orphanage";
-                                  break;
-
-                                case 2:
-                                  iType = "Old Age Home";
-                                  break;
-
-                                case 3:
-                                  iType = "Mental Institution";
-                                  break;
-
-                                case 4:
-                                  iType = "Others";
-                                  break;
-                                default:
-                                  iType = 'Others';
-                                  break;
+                              if (dropdownvalue == null) {
+                                BotToast.showText(
+                                    text:
+                                        "Please select problem type from the dropdown");
+                                iType = dropdownvalue;
+                              } else {
+                                iType = dropdownvalue;
                               }
                               if (lat == null && long == null) {
                                 BotToast.showText(
@@ -550,32 +501,30 @@ class _Add_ComplaintState extends State<Add_Complaint> {
                                   'Processing Data',
                                   style: Theme.of(context).textTheme.headline4,
                                 )));
-                                // database_services.addCreateToFb(
-                                //     iName,
-                                //     iAddress,
-                                //     iType,
-                                //     iPhoto,
-                                //     iPhone1,
-                                //     iPhone2,
-                                //     iDesc,
-                                //     false,
-                                //     lat,
-                                //     long);
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (_) =>
-                                //             MyBottomNavigationBar()));
+                                database_services.addCreateToFb(
+                                    iName!,
+                                    iAddress!,
+                                    iType!,
+                                    iPhoto!,
+                                    iPhone1!,
+                                    iDesc!,
+                                    false,
+                                    lat,
+                                    long);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => Bottom_Nav_Bar()));
                               }
                             }
                           },
                           child: Text(
-                            "Done",
-                            style: Theme.of(context).textTheme.headline4,
+                            "Submit",
+                            style: Styles().h14_bold,
                           ),
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
-                              primary: Theme.of(context).buttonColor,
+                              primary: Colors.black,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(14),
                               ))),

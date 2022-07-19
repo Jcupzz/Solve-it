@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:solve_it/Authentication/Register.dart';
@@ -25,10 +26,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      builder: BotToastInit(), //1. call BotToastInit
+      navigatorObservers: [BotToastNavigatorObserver()], //2.
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Material(child: Bottom_Nav_Bar()),
+      home: Material(child: Register()),
     );
   }
 }
