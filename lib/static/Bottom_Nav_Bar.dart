@@ -16,7 +16,7 @@ class _Bottom_Nav_BarState extends State<Bottom_Nav_Bar> {
   final pageOption = [
     Home(),
     Add_Complaint(),
-    Home(),
+    // Home(),
     Profile(),
   ];
 
@@ -40,11 +40,6 @@ class _Bottom_Nav_BarState extends State<Bottom_Nav_Bar> {
             Icons.add_circle_rounded,
             size: 20,
             color: Colors.black,
-          ),
-          Icon(
-            Icons.location_on_outlined,
-            color: Colors.black,
-            size: 20,
           ),
           Icon(
             Icons.person,

@@ -87,7 +87,7 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                       Text(
-                        'Tressa Bhai',
+                        'Tessa',
                         style: Styles().h2_bold,
                       ),
                       Padding(
@@ -96,7 +96,7 @@ class _ProfileState extends State<Profile> {
                             style: Styles().h14_bold),
                       ),
                       Text(
-                        'Account :  Admin',
+                        'Account :  User',
                         style: Styles().h14_bold,
                       ),
                     ],
@@ -125,7 +125,7 @@ class _ProfileState extends State<Profile> {
                 alignment: AlignmentDirectional(0, 0),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                  child: Text('Email :    rockybhaido@gmail.com',
+                  child: Text('Email :    tessapp.26@gmail.com',
                       style: Styles().h14_bold),
                 ),
               ),
@@ -149,7 +149,7 @@ class _ProfileState extends State<Profile> {
               ),
               child: Align(
                 alignment: AlignmentDirectional(0, 0),
-                child: Text('Phone :  +91 948826185', style: Styles().h14),
+                child: Text('Phone :  +91 8921988579', style: Styles().h14),
               ),
             ),
             const SizedBox(

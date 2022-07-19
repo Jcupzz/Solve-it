@@ -185,8 +185,8 @@ class _HomeState extends State<Home> {
                                   topLeft: Radius.circular(8),
                                   topRight: Radius.circular(8),
                                 ),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1587502536900-baf0c55a3f74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8OHx8YmVhY2h8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                child: Image.asset(
+                                  'assets/images/1 (2).jpeg',
                                   width: MediaQuery.of(context).size.width,
                                   height: 200,
                                   fit: BoxFit.fitWidth,
@@ -206,18 +206,19 @@ class _HomeState extends State<Home> {
                                         shape: BoxShape.circle,
                                       ),
                                       child: Image.asset(
-                                        'assets/images/user_2@2x.png',
+                                        'assets/images/person.png',
                                       ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12, 0, 0, 0),
-                                      child: Text('Problem', style: h2_bold),
+                                      child: Text('Drainage clogged',
+                                          style: h2_bold),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           4, 0, 0, 0),
-                                      child: Text('2h', style: h2_bold),
+                                      child: Text('2h', style: h14),
                                     ),
                                   ],
                                 ),
@@ -233,8 +234,8 @@ class _HomeState extends State<Home> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 8),
                                         child: Text(
-                                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s',
-                                          style: h2_bold,
+                                          "Every drainage system is clogged with filth and dust and it is not cleaned.People have cemented /grabbed many lakes and ponds, the accumulation capacity of the land / soil is zero in big cities.",
+                                          style: h14_bold,
                                         ),
                                       ),
                                     ),
@@ -317,8 +318,8 @@ class _HomeState extends State<Home> {
                                 topLeft: Radius.circular(8),
                                 topRight: Radius.circular(8),
                               ),
-                              child: Image.network(
-                                'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGJlYWNofGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+                              child: Image.asset(
+                                "assets/images/1 (1).jpeg",
                                 width: MediaQuery.of(context).size.width,
                                 height: 200,
                                 fit: BoxFit.fitWidth,
@@ -338,18 +339,19 @@ class _HomeState extends State<Home> {
                                       shape: BoxShape.circle,
                                     ),
                                     child: Image.asset(
-                                      'assets/images/user_2@2x.png',
+                                      'assets/images/person.png',
                                     ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         12, 0, 0, 0),
-                                    child: Text('Problem', style: h2_bold),
+                                    child: Text('Dumping of waste',
+                                        style: h2_bold),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4, 0, 0, 0),
-                                    child: Text('2h', style: h2_bold),
+                                    child: Text('2h', style: h14),
                                   ),
                                 ],
                               ),
@@ -365,8 +367,8 @@ class _HomeState extends State<Home> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 0, 0, 8),
                                       child: Text(
-                                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s',
-                                          style: h2_bold),
+                                          "Improper disposal of waste and dumping waste into water bodies leading to water pollution",
+                                          style: h14_bold),
                                     ),
                                   ),
                                 ],
