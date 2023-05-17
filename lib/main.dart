@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       builder: BotToastInit(), //1. call BotToastInit
-      navigatorObservers: [BotToastNavigatorObserver()], //2.
+      navigatorObservers: [BotToastNavigatorObserver()], //2
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

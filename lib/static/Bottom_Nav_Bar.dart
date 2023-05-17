@@ -15,7 +15,7 @@ class _Bottom_Nav_BarState extends State<Bottom_Nav_Bar> {
   int _page = 0;
   final pageOption = [
     Home(),
-    Add_Complaint(),
+    // Add_Complaint(),
     // Home(),
     Profile(),
   ];

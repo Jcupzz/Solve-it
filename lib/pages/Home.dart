@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:solve_it/Speak/speakable_text.dart';
 import 'package:solve_it/pages/asd.dart';
 
 class Home extends StatefulWidget {
@@ -10,6 +12,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // FlutterTts flutterTts = FlutterTts();
+  @override
+  // Future<void> initState() async {
+  //   // await flutterTts.setSpeechRate(0.5);
+  //   // await flutterTts.setVolume(1.0);
+  //   // await flutterTts.speak('Hello, world!');
+
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -233,9 +245,9 @@ class _HomeState extends State<Home> {
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 8),
-                                        child: Text(
-                                          "Every drainage system is clogged with filth and dust and it is not cleaned.People have cemented /grabbed many lakes and ponds, the accumulation capacity of the land / soil is zero in big cities.",
-                                          style: h14_bold,
+                                        child: SpeakableText(
+                                          text:
+                                              "Every drainage system is clogged with filth and dust and it is not cleaned.People have cemented /grabbed many lakes and ponds, the accumulation capacity of the land / soil is zero in big cities.",
                                         ),
                                       ),
                                     ),
